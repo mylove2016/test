@@ -1,0 +1,89 @@
+﻿<!DCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>❤你</title>
+<style type="text/css">
+*{padding:0; margin:0;}
+a{text-decoration:none;}
+ul,ol{list-style-type:none;}
+body{background:#fff no-repeat top center;background-size:cover;}
+.boxDom{width:940px;height:640px;margin:10px auto;padding:20px;background:rgba(0,0,0,0);}
+.boxDom a{display:block;width:300px;height:200px;margin-right:20px;margin-bottom:20px;overflow:hidden;float:left;}
+.boxDom a:nth-child(3n+3){margin-right:0;}
+.boxDom a img{width:100%;height:100%;}
+.bgGray{display:none;width:100%;height:100%;background:rgba(0,0,0,0.8);position:fixed;left:0;top;0;}
+.showImg{display:none;width:900px;height:600px;text-align:center;line-height:600px;background-color:rgba(0,0,0,0.8);border:0px solid rgba(0,0,0,0.8);position:absolute;left:50%;top;50%;margin-left:-450px;margin-top:-300px;}
+.showImg .btn{position:absolute;top:260px;}
+.showImg .prve{left:-80px;}
+.showImg .next{right:-86px;}
+.showImg .bigImg{width:100%;height:100%;vertica1-align:middle;max-width:100%;max-height:100%;border:3px solid #fff;}
+</style>
+</head>
+<body>
+<audio autoplay="autopaly">
+<source src="music.mp3" type="audio/mp3">
+</audio>
+<div class="boxDom">
+<a href="javascript:void(0);"><img src="0.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="1.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="2.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="3.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="4.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="5.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="6.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="7.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="8.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="9.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="10.jpg" alt="" /></a>
+<a href="javascript:void(0);"><img src="11.jpg" alt="" /></a>
+</div>
+<div class="bgGray"></div>
+<div class="showImg">
+<img class="btn prve" src="zuo.png" width="80" height="80" alt="左切换" />
+<img class="btn next" src="you.png" width="80" height="80" alt="右切换" />
+<img class="bigImg" src="1.jpg"  />
+</div>
+<div style="margin-top:-80px;position:fixed;color:#787878;font-family:楷体;">❤感谢你的观看❤<br>
+♈BY:周晓东<br>送给最爱的人.<br>2016年11月11日</div>
+<div style="float:right;margin-top:-20px;"><a href="index.html" style="color:red;font-size:20px;font-family:楷体;">回到第一页</a></div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+var num=0;
+var href="";
+var len=$(".boxDom a").length;
+$(".boxDom a").on("click",function(){
+var num=$(this).index();
+$(".bgGray").fadeIn(100);
+$(".showImg").fadeIn(100);
+href=$(this).find("img").attr("src");
+$(".bigImg").attr("src",href)
+
+});
+$(".bgGray").on("click",function(){
+$(this).fadeout(100);
+$(".showImg").fadeout(100);
+});
+$(".showImg .prve").on("click",function(){
+num--;
+if(num<0){
+num=len-1;
+}
+href=$(".boxDom a").eq(num).find("img").attr("src");
+$(".bigImg").attr("src",href)
+});
+$(".showImg .next").on("click",function(){
+num++;
+if(num>len-1){
+num=0;
+}
+href=$(".boxDom a").eq(num).find("img").attr("src");
+$(".bigImg").attr("src",href)
+
+});
+});
+</script>
+</body>
+</html>
